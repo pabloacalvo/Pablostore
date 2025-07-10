@@ -11,3 +11,4 @@ migrate:
 
 makemigrations:
 	py manage.py makemigrations --settings=settings.local
+
