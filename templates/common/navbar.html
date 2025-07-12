@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url "index" %}">PabloStore</a>
+    <a class="navbar-brand" href="{% url 'home' %}">PabloStore</a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
@@ -11,7 +11,7 @@
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="a">{{ user.username }}</a>
+            <a class="nav-link" href="{% url 'profile' %}">{{ user.username }}</a>
           </li>
           <li class="nav-item">
             <form action="{% url 'logout' %}" method="POST">

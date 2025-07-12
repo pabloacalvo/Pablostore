@@ -17,6 +17,21 @@ def login_view(request):
     return render(request, "users/login.html", {"form": form})
 
 def logout_view(request):
+    logout(request)
+    return redirect("login")
+
+
+def singup_view(request):
     if request.method == "POST":
-        logout(request)
-        return redirect("login")
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("home")
+    else:
+        form = UserCreationForm()
+    return render(request, 'users/singup.html', {"form": form})
+
+
+def profile(request):
+    return render(request, 'users/profile.html')
